@@ -71,10 +71,8 @@ const revealObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
       
-      // Animar as barras de progresso das habilidades
       const bar = entry.target.querySelector('.skill-bar');
       if (bar && bar.dataset.width && !bar.style.width) {
-        // Pequeno delay para a animação ficar mais suave
         setTimeout(() => {
           bar.style.width = bar.dataset.width;
         }, 100);
@@ -83,17 +81,15 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
 
-// Observar todos os elementos com classe .reveal
 document.querySelectorAll('.reveal').forEach(el => {
   revealObserver.observe(el);
 });
 
-// Também observar as skill cards para garantir que as barras sejam animadas
 document.querySelectorAll('.skill-card').forEach(card => {
   revealObserver.observe(card);
 });
 
-// ---- FORMULÁRIO DE CONTATO com validação melhorada ----
+// ---- FORMULÁRIO DE CONTATO com EmailJS ----
 function handleForm() {
   const nome     = document.getElementById('nome');
   const email    = document.getElementById('email');
@@ -105,7 +101,6 @@ function handleForm() {
   
   let isValid = true;
   
-  // Validação do nome
   if (!nomeVal) {
     highlightField(nome);
     isValid = false;
@@ -113,7 +108,6 @@ function handleForm() {
     removeHighlight(nome);
   }
   
-  // Validação do email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailVal || !emailRegex.test(emailVal)) {
     highlightField(email);
@@ -122,7 +116,6 @@ function handleForm() {
     removeHighlight(email);
   }
   
-  // Validação da mensagem
   if (!mensagemVal || mensagemVal.length < 5) {
     highlightField(mensagem);
     isValid = false;
@@ -130,29 +123,54 @@ function handleForm() {
     removeHighlight(mensagem);
   }
   
+  // GA4 — tentativa de envio (mesmo com campos inválidos)
+  gtag('event', 'form_tentativa_envio', {
+    campos_validos: isValid
+  });
+
   if (!isValid) {
     return;
   }
-  
-  // Simular envio do formulário
-  const contactForm = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
-  
-  if (contactForm && formSuccess) {
+
+  const btn = document.getElementById('formBtn');
+  btn.disabled = true;
+  btn.innerHTML = 'Enviando... <i class="fas fa-spinner fa-spin" style="margin-left: 8px;"></i>';
+
+  emailjs.send("service_bwprer5", "template_bk5k0k8", {
+    from_name:  nomeVal,
+    from_email: emailVal,
+    message:    mensagemVal,
+  })
+  .then(() => {
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
     contactForm.style.display = 'none';
     formSuccess.classList.add('show');
-    
-    // Limpar campos do formulário (opcional)
     nome.value = '';
     email.value = '';
     mensagem.value = '';
-    
-    // Scroll suave para o sucesso (opcional)
     formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+
+    // GA4 — formulário enviado com sucesso ✅
+    gtag('event', 'form_contato_enviado', {
+      event_category: 'contato',
+      event_label: 'Formulário enviado com sucesso'
+    });
+  })
+  .catch((error) => {
+    console.error('Erro ao enviar:', error);
+    btn.disabled = false;
+    btn.innerHTML = 'Enviar Mensagem <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>';
+    alert('Ocorreu um erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.');
+
+    // GA4 — erro no envio do formulário ❌
+    gtag('event', 'form_contato_erro', {
+      event_category: 'contato',
+      event_label: 'Erro ao enviar formulário'
+    });
+  });
 }
 
-// Funções auxiliares para validação visual
 function highlightField(field) {
   field.style.borderColor = '#ef4444';
   field.style.backgroundColor = '#fef2f2';
@@ -172,7 +190,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const targetId = this.getAttribute('href');
     
-    // Pular se for apenas "#" ou vazio
     if (targetId === '#' || targetId === '') return;
     
     const target = document.querySelector(targetId);
@@ -203,7 +220,6 @@ function showPortfolioImage(cardId) {
     img.style.opacity = '0';
     img.style.transition = 'opacity 0.4s ease';
     
-    // Se a imagem já estiver carregada
     if (img.complete && img.naturalHeight !== 0) {
       img.style.opacity = '1';
     } else {
@@ -229,38 +245,99 @@ function hidePortfolioImage(cardId) {
   if (icon) icon.style.display = 'block';
 }
 
-// ---- INICIALIZAÇÃO: Verificar imagens já carregadas nos cards ----
+// ---- INICIALIZAÇÃO ----
 document.addEventListener('DOMContentLoaded', function() {
-  // Para cada card de portfólio, verificar se a imagem já existe e carregou
+
+  // GA4 — rastrear clique no botão de WhatsApp
+  const whatsappBtn = document.querySelector('.whatsapp-btn');
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', () => {
+      gtag('event', 'click_whatsapp', {
+        event_category: 'contato',
+        event_label: 'Botão WhatsApp'
+      });
+    });
+  }
+
+  // GA4 — rastrear clique no botão "Entrar em Contato" do hero
+  const heroCta = document.querySelector('.hero-actions .btn-primary');
+  if (heroCta) {
+    heroCta.addEventListener('click', () => {
+      gtag('event', 'click_cta_hero', {
+        event_category: 'engajamento',
+        event_label: 'CTA Hero — Entrar em Contato'
+      });
+    });
+  }
+
+  // GA4 — rastrear clique no e-mail
+  const emailLink = document.querySelector('a[href^="mailto:"]');
+  if (emailLink) {
+    emailLink.addEventListener('click', () => {
+      gtag('event', 'click_email', {
+        event_category: 'contato',
+        event_label: 'Link de e-mail'
+      });
+    });
+  }
+
+  // GA4 — rastrear até onde o visitante rolou a página (25%, 50%, 75%, 100%)
+  const scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', () => {
+    const scrolled = Math.round(
+      (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+    );
+    for (const milestone in scrollMilestones) {
+      if (!scrollMilestones[milestone] && scrolled >= milestone) {
+        scrollMilestones[milestone] = true;
+        gtag('event', 'scroll_profundidade', {
+          event_category: 'engajamento',
+          event_label: `Rolou ${milestone}% da página`
+        });
+      }
+    }
+  });
+
+  // GA4 — rastrear qual seção o visitante visualizou
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        gtag('event', 'secao_visualizada', {
+          event_category: 'engajamento',
+          event_label: entry.target.getAttribute('id')
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  document.querySelectorAll('section[id]').forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+  // Inicialização dos cards de portfólio
   for (let i = 1; i <= 6; i++) {
     const img = document.getElementById('img-card' + i);
     if (img && img.complete && img.naturalHeight !== 0) {
-      // Imagem já carregada com sucesso
       showPortfolioImage('card' + i);
     } else if (img && img.src && img.src !== '') {
-      // Imagem configurada mas não carregada ainda (o onload vai lidar)
-      // Forçar verificação
       img.onload = () => showPortfolioImage('card' + i);
       img.onerror = () => hidePortfolioImage('card' + i);
     } else {
-      // Sem imagem, mostrar ícone
       hidePortfolioImage('card' + i);
     }
   }
   
-  // Garantir que a navbar comece transparente se estiver no topo
   if (window.scrollY <= 50) {
     navbar.classList.remove('scrolled');
   }
   
-  // Adicionar suporte para tema escuro/preferência de movimento (opcional)
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (prefersReducedMotion.matches) {
     document.documentElement.style.scrollBehavior = 'auto';
   }
 });
 
-// ---- PREVENIR CLIQUE EM BOTÕES DUPLICADOS NO FORMULÁRIO ----
+// ---- PREVENIR CLIQUE DUPLO NO FORMULÁRIO ----
 let isSubmitting = false;
 const originalHandleForm = handleForm;
 window.handleForm = function() {
@@ -272,7 +349,7 @@ window.handleForm = function() {
   }, 2000);
 };
 
-// ---- ANIMAÇÃO EXTRA PARA ÍCONES DAS SKILLS (quando visíveis) ----
+// ---- ANIMAÇÃO DOS ÍCONES DAS SKILLS ----
 const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -292,7 +369,6 @@ document.querySelectorAll('.skill-card').forEach(card => {
   skillObserver.observe(card);
 });
 
-// Estilo para animação dos ícones (adicionado dinamicamente)
 const style = document.createElement('style');
 style.textContent = `
   @keyframes iconPop {
@@ -316,11 +392,3 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
-
-// ---- LOG NO CONSOLE APENAS PARA DESENVOLVIMENTO (remover em produção) ----
-if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-  console.log('🚀 Site Iara Victoria - Modo desenvolvimento');
-  console.log('✅ Font Awesome ícones carregados');
-  console.log('✅ Scroll reveal ativo');
-  console.log('✅ Menu mobile configurado');
-}
