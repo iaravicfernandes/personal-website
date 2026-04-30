@@ -1,0 +1,29 @@
+﻿<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Logo Iara Victoria</title>
+  <desc id="desc">Monograma IV elegante em dourado sobre selo circular escuro.</desc>
+  <defs>
+    <radialGradient id="bg" cx="35%" cy="28%" r="78%">
+      <stop offset="0" stop-color="#353126"/>
+      <stop offset="0.52" stop-color="#1A1A1A"/>
+      <stop offset="1" stop-color="#0F0F0D"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="29" y1="22" x2="102" y2="109" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3DA84"/>
+      <stop offset="0.44" stop-color="#C9A227"/>
+      <stop offset="1" stop-color="#8C6B1F"/>
+    </linearGradient>
+    <linearGradient id="softGold" x1="36" y1="34" x2="91" y2="98" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3B8"/>
+      <stop offset="1" stop-color="#C9A227"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="64" cy="64" r="60" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="56" stroke="url(#gold)" stroke-width="2"/>
+  <circle cx="64" cy="64" r="45" stroke="#E6C65C" stroke-opacity="0.18" stroke-width="1"/>
+
+  <path d="M39 83.5H48.2V45.7H39V39.5H67.2V45.7H58V83.5H67.2V89.7H39V83.5Z" fill="url(#softGold)"/>
+  <path d="M67.8 39.5H77.5L88.9 74.2L100.4 39.5H109.2L93 89.7H84.3L67.8 39.5Z" fill="url(#gold)"/>
+
+  <path d="M31 96C39.8 101.4 50.7 104.5 64 104.5C77.3 104.5 88.2 101.4 97 96" stroke="#E6C65C" stroke-opacity="0.42" stroke-width="2" stroke-linecap="round"/>
+</svg>
