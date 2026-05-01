@@ -3,606 +3,524 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Iara Victoria Fernandes de Souza — Estudante de Farmácia, profissional da área da saúde, futura empreendedora." />
-  <meta name="keywords" content="farmácia, biomedicina, saúde, UNIFEMM, profissional, Iara Victoria" />
-  <title>Iara Victoria | Farmacêutica em Formação</title>
-  <link rel="icon" type="image/svg+xml" href="imagens/logo-iara.svg" />
+  <meta name="description" content="Iara Victoria Fernandes de Souza — Estudante de Farmácia na UNIFEMM, com experiência prática e visão empreendedora na área da saúde." />
+  <meta name="keywords" content="farmácia, saúde, Iara Victoria, UNIFEMM, portfólio profissional" />
+  <meta name="author" content="Iara Victoria Fernandes de Souza" />
+  <title>Iara Victoria | Farmácia & Saúde</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Playfair Display + DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome 6 (Free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3C37Q6MFW8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-3C37Q6MFW8');
-  </script>
 </head>
 <body>
 
-  <!-- =========================================
-       NAVBAR
-  ========================================== -->
-  <nav id="navbar" role="navigation" aria-label="Navegação principal">
-    <div class="container nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="Ir para o início">
-        <img src="imagens/logo-iara.svg" alt="" class="nav-logo-img" />
-        <span>Iara Victoria</span>
+  <!-- ===================== CURSOR PERSONALIZADO ===================== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ===================== LOADER ===================== -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <span class="loader-initials">IVF</span>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo com iniciais -->
+      <a href="#hero" class="nav-logo" aria-label="Início">
+        <span>IVF</span>
       </a>
 
-      <ul class="nav-links" id="navLinks" role="list">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#experiencia">Experiência</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#portfolio">Projetos</a></li>
-        <li><a href="#interesses">Interesses</a></li>
-        <li><a href="#contato" class="nav-cta">Contato</a></li>
-      </ul>
+      <!-- Menu desktop -->
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#trajetoria" class="nav-link">Trajetória</a>
+        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#portfolio" class="nav-link">Portfólio</a>
+        <a href="#contato" class="nav-link nav-cta">Contato</a>
+      </nav>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <!-- Hamburguer mobile -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
-  </nav>
 
-  <!-- =========================================
-       HERO
-  ========================================== -->
-  <section id="hero" aria-label="Apresentação">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-circle"></div>
+    <!-- Menu mobile -->
+    <div class="nav-mobile" id="navMobile">
+      <a href="#sobre" class="nav-mobile-link">Sobre</a>
+      <a href="#trajetoria" class="nav-mobile-link">Trajetória</a>
+      <a href="#habilidades" class="nav-mobile-link">Habilidades</a>
+      <a href="#portfolio" class="nav-mobile-link">Portfólio</a>
+      <a href="#contato" class="nav-mobile-link">Contato</a>
+    </div>
+  </header>
 
-    <div class="container">
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <!-- Fundo decorativo -->
+    <div class="hero-bg">
+      <div class="hero-blob hero-blob--1"></div>
+      <div class="hero-blob hero-blob--2"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="hero-container">
+      <!-- Coluna esquerda: texto principal -->
       <div class="hero-content">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          <i class="fas fa-graduation-cap" style="font-size: 11px; margin-right: 6px;"></i>
-          Estudante de Farmácia · UNIFEMM
-        </div>
+        <p class="hero-eyebrow reveal-up">Farmácia · Saúde · Cuidado</p>
 
-        <h1 class="hero-name">
-          Iara<br><em>Victoria</em>
+        <h1 class="hero-name reveal-up" style="--delay: 0.1s">
+          Iara<br />
+          Victoria<br />
+          <em>Fernandes</em><br />
+          de Souza
         </h1>
 
-        <p class="hero-tagline">
-          Farmacêutica em Formação · Futura Empreendedora
+        <p class="hero-tagline reveal-up" style="--delay: 0.2s">
+          Presença profissional construída com responsabilidade,<br class="br-desktop" />
+          organização e visão de crescimento na área da saúde.
         </p>
 
-        <p class="hero-desc">
-          Construindo uma sólida carreira na área da saúde com dedicação, precisão e visão de futuro. Unindo conhecimento acadêmico à experiência prática para fazer a diferença.
+        <p class="hero-sub reveal-up" style="--delay: 0.3s">
+          Estudante de Farmácia na UNIFEMM, dedicada a desenvolver uma trajetória sólida, ética e humana — conectando conhecimento técnico, atenção aos detalhes e cuidado genuíno com pessoas.
         </p>
 
-        <div class="hero-actions">
-          <a href="#contato" class="btn btn-primary">
-            <i class="fas fa-envelope" style="margin-right: 8px;"></i>
-            Entrar em Contato
-          </a>
-          <a href="#sobre" class="btn btn-outline" style="color:#E6C65C;border-color:rgba(230,198,92,0.45);">
-            Conheça minha história <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+        <div class="hero-actions reveal-up" style="--delay: 0.4s">
+          <a href="#contato" class="btn btn-primary">Entrar em contato</a>
+          <a href="https://wa.me/5531998130743" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
           </a>
         </div>
+      </div>
 
-        <div class="hero-stats">
-          <div>
-            <div class="hero-stat-num">1+</div>
-            <div class="hero-stat-label">Ano de Experiência</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">2°</div>
-            <div class="hero-stat-label">Período · Farmácia</div>
-          </div>
-          <div>
-            <div class="hero-stat-num">100%</div>
-            <div class="hero-stat-label">Dedicação &amp; Foco</div>
+      <!-- Coluna direita: card de destaque -->
+      <div class="hero-card reveal-right" style="--delay: 0.3s">
+        <div class="hero-card-inner">
+          <span class="hero-card-date">22.04.2006</span>
+          <h2 class="hero-card-title">Perfil em formação para a excelência farmacêutica</h2>
+          <p class="hero-card-text">Atualmente no segundo período de Farmácia, com experiência inicial em ambiente farmacêutico e foco em evolução contínua.</p>
+          <div class="hero-card-tags">
+            <span class="tag">UNIFEMM</span>
+            <span class="tag">.Farma</span>
+            <span class="tag">1 ano de exp.</span>
           </div>
         </div>
+        <!-- Detalhe decorativo -->
+        <div class="hero-card-deco"></div>
       </div>
     </div>
 
-    <div class="hero-scroll" aria-hidden="true">
-      <div class="hero-scroll-line"></div>
-      <span>Scroll</span>
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Rolar</span>
+      <div class="scroll-line"><div class="scroll-dot"></div></div>
     </div>
   </section>
 
-  <!-- =========================================
-       SOBRE MIM
-  ========================================== -->
-  <section id="sobre" class="section" aria-labelledby="sobre-title">
+  <!-- ===================== SOBRE MIM ===================== -->
+  <section class="sobre" id="sobre">
     <div class="container">
+      <!-- Label de seção -->
+      <p class="section-label reveal-up">Sobre mim</p>
+      <h2 class="section-title reveal-up" style="--delay: 0.1s">
+        Uma trajetória guiada<br />por cuidado, método<br />e dedicação.
+      </h2>
+
       <div class="sobre-grid">
-
-        <!-- Imagem -->
-        <div class="sobre-image-wrap reveal">
-          <img
-            src="imagens/foto.jpg"
-            alt="Foto de Iara Victoria"
-            class="sobre-foto-real"
-            onerror="this.style.display='none'; document.getElementById('sobre-placeholder').style.display='flex';"
-          />
-          <div class="sobre-image-placeholder" id="sobre-placeholder" style="display:none;">
-            <i class="fas fa-user-graduate avatar-icon" style="font-size: 64px; opacity: 0.4;"></i>
-            <span class="avatar-label">Adicione sua foto aqui</span>
-          </div>
-          <div class="sobre-badge-float">
-            <div class="num">2025</div>
-            <div class="lbl">Início da Graduação</div>
-          </div>
+        <div class="sobre-col reveal-up" style="--delay: 0.15s">
+          <p>Sou uma pessoa organizada, perfeccionista e comprometida com aquilo que me proponho a fazer. Minha escolha pela Farmácia nasce do interesse genuíno por saúde, bem-estar e pelo impacto positivo que uma orientação responsável pode gerar na vida das pessoas.</p>
         </div>
-
-        <!-- Texto -->
-        <div class="sobre-text">
-          <span class="section-label">Sobre Mim</span>
-          <h2 id="sobre-title" class="section-title reveal reveal-delay-1">
-            Uma profissional em construção, com propósito definido
-          </h2>
-          <div class="gold-line reveal reveal-delay-2"></div>
-
-          <p class="lead reveal reveal-delay-2">
-            "Acredito que a excelência na área da saúde começa com compromisso, estudo contínuo e genuíno cuidado com o próximo."
-          </p>
-
-          <p class="reveal reveal-delay-3">
-            Minha trajetória na saúde começou de forma prática: atuando na área farmacêutica antes mesmo de ingressar na graduação. Esse contato direto com o setor despertou em mim uma paixão real pelo campo e solidificou minha certeza de carreira.
-          </p>
-
-          <p class="reveal reveal-delay-3">
-            Atualmente curso o 2° período de Farmácia na UNIFEMM, onde cada disciplina reforça meu compromisso com a qualidade e a responsabilidade que essa profissão exige. Tenho como meta ir além: com planos de ampliar minha formação em Biomedicina e, futuramente, empreender para abrir minha própria farmácia.
-          </p>
-
-          <div class="sobre-tags reveal reveal-delay-4">
-            <span class="sobre-tag"><i class="fas fa-trophy" style="margin-right: 6px;"></i> Organizada</span>
-            <span class="sobre-tag"><i class="fas fa-search" style="margin-right: 6px;"></i> Perfeccionista</span>
-            <span class="sobre-tag"><i class="fas fa-capsules" style="margin-right: 6px;"></i> Área da Saúde</span>
-            <span class="sobre-tag"><i class="fas fa-seedling" style="margin-right: 6px;"></i> Em Crescimento</span>
-            <span class="sobre-tag"><i class="fas fa-hand-sparkles" style="margin-right: 6px;"></i> Responsável</span>
-            <span class="sobre-tag"><i class="fas fa-eye" style="margin-right: 6px;"></i> Detalhista</span>
-          </div>
+        <div class="sobre-col reveal-up" style="--delay: 0.25s">
+          <p>Valorizo processos bem feitos, comunicação respeitosa e aprendizado constante. Minha jornada acadêmica representa o início de uma carreira planejada com seriedade, sensibilidade e ambição profissional equilibrada.</p>
         </div>
+      </div>
 
+      <!-- Cards de características -->
+      <div class="sobre-cards">
+        <div class="sobre-card reveal-up" style="--delay: 0.1s">
+          <div class="sobre-card-icon">✦</div>
+          <h3>Organizada</h3>
+          <p>Processos, rotinas e responsabilidades são geridos com método e precisão.</p>
+        </div>
+        <div class="sobre-card reveal-up" style="--delay: 0.2s">
+          <div class="sobre-card-icon">✦</div>
+          <h3>Perfeccionista</h3>
+          <p>Atenção minuciosa a cada detalhe, garantindo resultados de alto padrão.</p>
+        </div>
+        <div class="sobre-card reveal-up" style="--delay: 0.3s">
+          <div class="sobre-card-icon">✦</div>
+          <h3>Dedicada</h3>
+          <p>Comprometimento total com o aprendizado e com o crescimento profissional.</p>
+        </div>
+        <div class="sobre-card reveal-up" style="--delay: 0.4s">
+          <div class="sobre-card-icon">✦</div>
+          <h3>Humana</h3>
+          <p>Cuidado genuíno com pessoas como alicerce de toda a atuação profissional.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- =========================================
-       EXPERIÊNCIA & FORMAÇÃO
-  ========================================== -->
-  <section id="experiencia" class="section section--alt" aria-labelledby="exp-title">
+  <!-- ===================== TRAJETÓRIA ===================== -->
+  <section class="trajetoria" id="trajetoria">
     <div class="container">
-      <div style="text-align:center; margin-bottom:72px;">
-        <span class="section-label reveal">Trajetória</span>
-        <h2 id="exp-title" class="section-title reveal reveal-delay-1" style="margin:0 auto 0; max-width:560px;">
-          Experiência &amp; Formação
-        </h2>
-        <div class="gold-line reveal reveal-delay-2" style="margin:20px auto 0;"></div>
+      <p class="section-label section-label--light reveal-up">Experiência e Formação</p>
+      <h2 class="section-title section-title--light reveal-up" style="--delay: 0.1s">
+        Base acadêmica, vivência<br />profissional e visão de futuro.
+      </h2>
+
+      <div class="trajetoria-grid">
+        <!-- Card Experiência -->
+        <div class="traj-card reveal-up" style="--delay: 0.1s">
+          <div class="traj-card-header">
+            <span class="traj-label">Experiência</span>
+            <div class="traj-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            </div>
+          </div>
+          <h3 class="traj-card-title">.Farma</h3>
+          <p class="traj-card-sub">1 ano de experiência prática</p>
+          <p class="traj-card-text">Vivência de 1 ano em ambiente farmacêutico real, consolidando habilidades de atendimento, organização de estoque, responsabilidade com medicamentos e relacionamento com clientes e equipe.</p>
+          <div class="traj-card-badge">Em andamento</div>
+        </div>
+
+        <!-- Card Formação -->
+        <div class="traj-card reveal-up" style="--delay: 0.2s">
+          <div class="traj-card-header">
+            <span class="traj-label">Formação</span>
+            <div class="traj-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+          </div>
+          <h3 class="traj-card-title">Farmácia — UNIFEMM</h3>
+          <p class="traj-card-sub">Início: agosto de 2025</p>
+          <p class="traj-card-text">Atualmente no segundo período do curso de Farmácia, construindo uma base sólida em ciências farmacêuticas, bioquímica, anatomia e legislação da área da saúde.</p>
+          <div class="traj-card-badge traj-card-badge--blue">2º Período</div>
+        </div>
+
+        <!-- Card Próximos Passos -->
+        <div class="traj-card reveal-up" style="--delay: 0.3s">
+          <div class="traj-card-header">
+            <span class="traj-label">Próximos passos</span>
+            <div class="traj-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+          </div>
+          <h3 class="traj-card-title">Biomedicina e empreendedorismo</h3>
+          <p class="traj-card-sub">Visão de longo prazo</p>
+          <p class="traj-card-text">Após concluir a graduação em Farmácia, tenho como objetivo ampliar minha qualificação por meio do curso de Biomedicina, e, a longo prazo, empreender com a abertura de uma farmácia própria.</p>
+          <div class="traj-card-badge traj-card-badge--gold">Planejado</div>
+        </div>
       </div>
 
-      <div class="timeline">
-
-        <div class="timeline-item reveal">
-          <div class="timeline-card">
-            <div class="period">2025 — Presente</div>
-            <h3>.Farma</h3>
-            <div class="org">Assistente · Setor Farmacêutico</div>
-            <p>
-              Mais de um ano de vivência no ambiente farmacêutico, com atuação direta no atendimento ao cliente, controle de estoque e orientação sobre medicamentos e produtos. Uma experiência que moldou minha visão prática da profissão e aprimorou habilidades de comunicação, organização e responsabilidade.
-            </p>
-          </div>
+      <!-- Linha do tempo horizontal -->
+      <div class="timeline reveal-up" style="--delay: 0.4s" aria-label="Linha do tempo">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-year">2024</span>
+          <span class="timeline-desc">Início na .Farma</span>
         </div>
-
-        <div class="timeline-item reveal reveal-delay-1">
-          <div class="timeline-empty"></div>
-          <div class="timeline-card">
-            <div class="period">Agosto 2025 — Em curso</div>
-            <h3>Bacharelado em Farmácia</h3>
-            <div class="org">UNIFEMM · 2° Período</div>
-            <p>
-              Graduação em pleno andamento, com foco em farmacologia, química farmacêutica e gestão em saúde. Cada semestre fortalece minha base técnica e científica para uma atuação profissional de excelência.
-            </p>
-          </div>
+        <div class="timeline-line"></div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--active"></div>
+          <span class="timeline-year">2025</span>
+          <span class="timeline-desc">Ingresso na UNIFEMM</span>
         </div>
-
-        <div class="timeline-item timeline-future reveal reveal-delay-2">
-          <div class="timeline-card">
-            <div class="period">Próximo Passo · Em Planejamento</div>
-            <h3>Biomedicina</h3>
-            <div class="org">Formação Complementar Planejada</div>
-            <p>
-              Após concluir a graduação em Farmácia, planejo ampliar minha qualificação cursando Biomedicina, integrando conhecimentos que enriquecerão minha prática profissional e abrirão novos horizontes de atuação na saúde.
-            </p>
-          </div>
+        <div class="timeline-line"></div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--future"></div>
+          <span class="timeline-year">2030+</span>
+          <span class="timeline-desc">Biomedicina & Empreend.</span>
         </div>
-
-        <div class="timeline-item timeline-future reveal reveal-delay-3">
-          <div class="timeline-empty"></div>
-          <div class="timeline-card">
-            <div class="period">Objetivo de Longo Prazo</div>
-            <h3>Empreendedorismo na Saúde</h3>
-            <div class="org">Meta Profissional</div>
-            <p>
-              Com sólida formação técnica e visão empreendedora, meu objetivo é fundar e administrar minha própria farmácia — unindo atendimento humanizado, gestão eficiente e compromisso com a saúde da comunidade.
-            </p>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- =========================================
-       HABILIDADES
-  ========================================== -->
-  <section id="habilidades" class="section" aria-labelledby="hab-title">
+  <!-- ===================== HABILIDADES ===================== -->
+  <section class="habilidades" id="habilidades">
     <div class="container">
-      <div style="text-align:center; margin-bottom:72px;">
-        <span class="section-label reveal">Competências</span>
-        <h2 id="hab-title" class="section-title reveal reveal-delay-1" style="margin:0 auto; max-width:520px;">
-          Habilidades &amp; Competências
-        </h2>
-        <div class="gold-line reveal reveal-delay-2" style="margin:20px auto 0;"></div>
-        <p class="section-sub reveal reveal-delay-2" style="margin:0 auto; text-align:center; max-width:520px;">
-          Um conjunto de competências desenvolvidas na prática, que orientam cada ação com qualidade e responsabilidade.
-        </p>
-      </div>
+      <p class="section-label reveal-up">Habilidades</p>
+      <h2 class="section-title reveal-up" style="--delay: 0.1s">
+        Competências comportamentais<br />que fortalecem minha atuação.
+      </h2>
 
       <div class="skills-grid">
-        <div class="skill-card reveal">
-          <i class="fas fa-bullseye skill-icon"></i>
-          <h3>Organização</h3>
-          <p>Capacidade de estruturar processos, prazos e responsabilidades com eficiência, garantindo fluidez no trabalho.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-width="95%"></div></div>
+        <!-- Cada card de habilidade -->
+        <div class="skill-card reveal-up" style="--delay: 0.05s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Organização</h3>
+          <p class="skill-desc">Gestão eficiente de tarefas, prazos e responsabilidades no ambiente profissional.</p>
         </div>
-        <div class="skill-card reveal reveal-delay-1">
-          <i class="fas fa-microscope skill-icon"></i>
-          <h3>Atenção ao Detalhe</h3>
-          <p>Precisão e cuidado em cada etapa — especialmente críticos na área farmacêutica, onde o detalhe importa.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-width="92%"></div></div>
+        <div class="skill-card reveal-up" style="--delay: 0.1s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Atenção aos detalhes</h3>
+          <p class="skill-desc">Precisão e cuidado minucioso em cada processo, essencial na área farmacêutica.</p>
         </div>
-        <div class="skill-card reveal reveal-delay-2">
-          <i class="fas fa-handshake skill-icon"></i>
-          <h3>Comunicação</h3>
-          <p>Habilidade de transmitir informações com clareza e empatia, criando conexões genuínas com clientes e equipe.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-width="88%"></div></div>
+        <div class="skill-card reveal-up" style="--delay: 0.15s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Comunicação clara</h3>
+          <p class="skill-desc">Transmissão de informações com objetividade, empatia e respeito ao paciente.</p>
         </div>
-        <div class="skill-card reveal reveal-delay-1">
-          <i class="fas fa-check-circle skill-icon"></i>
-          <h3>Responsabilidade</h3>
-          <p>Comprometimento com resultados e com a confiança depositada — na saúde, não há espaço para meias medidas.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-width="97%"></div></div>
+        <div class="skill-card reveal-up" style="--delay: 0.2s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Responsabilidade</h3>
+          <p class="skill-desc">Comprometimento ético com obrigações acadêmicas e profissionais.</p>
         </div>
-        <div class="skill-card reveal reveal-delay-2">
-          <i class="fas fa-book-open skill-icon"></i>
-          <h3>Aprendizado Contínuo</h3>
-          <p>Mentalidade de crescimento constante, sempre buscando atualização e aperfeiçoamento técnico-científico.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-width="90%"></div></div>
+        <div class="skill-card reveal-up" style="--delay: 0.25s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Dedicação</h3>
+          <p class="skill-desc">Empenho constante no aprendizado e na busca por excelência profissional.</p>
         </div>
-        <div class="skill-card reveal reveal-delay-3">
-          <i class="fas fa-lightbulb skill-icon"></i>
-          <h3>Proatividade</h3>
-          <p>Antecipação de demandas e disposição para ir além do esperado, contribuindo com soluções antes dos problemas.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" data-width="85%"></div></div>
+        <div class="skill-card reveal-up" style="--delay: 0.3s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Cuidado com pessoas</h3>
+          <p class="skill-desc">Sensibilidade humana e interesse genuíno no bem-estar de pacientes e colegas.</p>
+        </div>
+        <div class="skill-card reveal-up" style="--delay: 0.35s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Trabalho em equipe</h3>
+          <p class="skill-desc">Capacidade de colaborar de forma harmônica e produtiva em grupos de trabalho.</p>
+        </div>
+        <div class="skill-card reveal-up" style="--delay: 0.4s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Proatividade</h3>
+          <p class="skill-desc">Iniciativa para identificar soluções e antecipar necessidades no ambiente de trabalho.</p>
+        </div>
+        <div class="skill-card reveal-up" style="--delay: 0.45s">
+          <span class="skill-plus">+</span>
+          <h3 class="skill-name">Aprendizado contínuo</h3>
+          <p class="skill-desc">Postura aberta à evolução constante, acompanhando as inovações da área da saúde.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- =========================================
-       PORTFÓLIO / PROJETOS
-  ========================================== -->
-  <section id="portfolio" class="section section--alt" aria-labelledby="port-title">
+  <!-- ===================== PORTFÓLIO ===================== -->
+  <section class="portfolio" id="portfolio">
     <div class="container">
-      <div style="text-align:center; margin-bottom:72px;">
-        <span class="section-label reveal">Portfólio</span>
-        <h2 id="port-title" class="section-title reveal reveal-delay-1" style="margin:0 auto; max-width:580px;">
-          Estudos, Projetos &amp; Iniciativas
-        </h2>
-        <div class="gold-line reveal reveal-delay-2" style="margin:20px auto 0;"></div>
-        <p class="section-sub reveal reveal-delay-2" style="margin:0 auto; text-align:center; max-width:560px;">
-          A construção de um portfólio sólido começa aqui — com estudos de caso, iniciativas acadêmicas e projetos que revelam potencial e comprometimento.
-        </p>
-      </div>
+      <p class="section-label section-label--light reveal-up">Portfólio em construção</p>
+      <h2 class="section-title section-title--light reveal-up" style="--delay: 0.1s">
+        Mesmo no início, cada etapa<br />pode demonstrar evolução profissional.
+      </h2>
+      <p class="portfolio-intro reveal-up" style="--delay: 0.2s">
+        Minha jornada profissional está em construção — e aqui registro, com transparência, as bases que estou desenvolvendo para construir um portfólio sólido na área da saúde.
+      </p>
 
       <div class="portfolio-grid">
-
-        <!-- Card 1 -->
-        <div class="portfolio-card reveal">
-          <div class="portfolio-card-top" style="background:linear-gradient(135deg,#fef9ec,#f7edc5);" id="top-card1">
-            <img src="imagens/rotina-farmacia.png" alt="Rotina farmacêutica" id="img-card1" loading="lazy" onload="showPortfolioImage('card1')" onerror="hidePortfolioImage('card1')" />
-            <div class="card-overlay" id="overlay-card1"></div>
-            <i class="fas fa-prescription-bottle card-emoji" id="emoji-card1" style="font-size: 48px; display: none;"></i>
-          </div>
-          <div class="portfolio-card-body">
-            <div class="ptag">Experiência Prática</div>
-            <h3>Rotina Farmacêutica</h3>
-            <p>Vivência diária no atendimento farmacêutico: dispensação de medicamentos, orientação a pacientes, controle de prazos de validade e boas práticas de armazenamento.</p>
-            <div class="portfolio-status">
-              <span class="portfolio-status-dot status-active"></span>
-              Atividade em andamento
+        <!-- Item 1 -->
+        <article class="portfolio-card reveal-up" style="--delay: 0.1s">
+          <div class="portfolio-card-top">
+            <span class="portfolio-tag">Acadêmico</span>
+            <div class="portfolio-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
           </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="portfolio-card reveal reveal-delay-1">
-          <div class="portfolio-card-top" style="background:linear-gradient(135deg,#ecf5ff,#d0e9ff);" id="top-card2">
-            <img src="imagens/farmacologia.jpg" alt="Estudos em farmacologia" id="img-card2" loading="lazy" onload="showPortfolioImage('card2')" onerror="hidePortfolioImage('card2')" />
-            <div class="card-overlay" id="overlay-card2"></div>
-            <i class="fas fa-dna card-emoji" id="emoji-card2" style="font-size: 48px; display: none;"></i>
+          <h3>Estudos dirigidos em Farmácia</h3>
+          <p>Revisões aprofundadas das disciplinas do curso, com foco em farmacologia, bioquímica clínica e legislação sanitária. Material organizado e sistematizado.</p>
+          <div class="portfolio-status">
+            <span class="status-dot status-dot--active"></span>Em desenvolvimento
           </div>
-          <div class="portfolio-card-body">
-            <div class="ptag">Projeto Acadêmico</div>
-            <h3>Estudos em Farmacologia</h3>
-            <p>Aprofundamento nos mecanismos de ação dos fármacos, interações medicamentosas e farmacoterapia — conteúdos centrais da graduação em Farmácia.</p>
-            <div class="portfolio-status">
-              <span class="portfolio-status-dot status-study"></span>
-              Em desenvolvimento
+        </article>
+
+        <!-- Item 2 -->
+        <article class="portfolio-card reveal-up" style="--delay: 0.2s">
+          <div class="portfolio-card-top">
+            <span class="portfolio-tag">Projetos futuros</span>
+            <div class="portfolio-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
           </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="portfolio-card reveal reveal-delay-2">
-          <div class="portfolio-card-top" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);" id="top-card3">
-            <img src="imagens/atencao-farmaceutica.jpg" alt="Atenção farmacêutica" id="img-card3" loading="lazy" onload="showPortfolioImage('card3')" onerror="hidePortfolioImage('card3')" />
-            <div class="card-overlay" id="overlay-card3"></div>
-            <i class="fas fa-hospital-user card-emoji" id="emoji-card3" style="font-size: 48px; display: none;"></i>
+          <h3>Projetos acadêmicos futuros</h3>
+          <p>Participação planejada em iniciações científicas, projetos de extensão universitária e ações de saúde comunitária ao longo da graduação.</p>
+          <div class="portfolio-status">
+            <span class="status-dot status-dot--pending"></span>Planejado
           </div>
-          <div class="portfolio-card-body">
-            <div class="ptag">Iniciativa Futura</div>
-            <h3>Atenção Farmacêutica</h3>
-            <p>Plano de estudo e estágio focado no acompanhamento farmacoterapêutico de pacientes, promovendo uso racional de medicamentos e qualidade de vida.</p>
-            <div class="portfolio-status">
-              <span class="portfolio-status-dot status-future"></span>
-              Planejado para 2026
+        </article>
+
+        <!-- Item 3 -->
+        <article class="portfolio-card reveal-up" style="--delay: 0.3s">
+          <div class="portfolio-card-top">
+            <span class="portfolio-tag">Prática</span>
+            <div class="portfolio-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0H5m4 0h10m0-11v11m0 0h-4M9 14l3 3 3-3"/></svg>
             </div>
           </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="portfolio-card reveal reveal-delay-1">
-          <div class="portfolio-card-top" style="background:linear-gradient(135deg,#fdf4ff,#f3e8ff);" id="top-card4">
-            <img src="imagens/biomedicina.jpg" alt="Formação complementar em biomedicina" id="img-card4" loading="lazy" onload="showPortfolioImage('card4')" onerror="hidePortfolioImage('card4')" />
-            <div class="card-overlay" id="overlay-card4"></div>
-            <i class="fas fa-brain card-emoji" id="emoji-card4" style="font-size: 48px; display: none;"></i>
+          <h3>Simulações profissionais</h3>
+          <p>Estudos de caso simulados sobre dispensação de medicamentos, interações farmacológicas e orientação farmacêutica ao paciente, desenvolvidos em sala de aula.</p>
+          <div class="portfolio-status">
+            <span class="status-dot status-dot--active"></span>Em desenvolvimento
           </div>
-          <div class="portfolio-card-body">
-            <div class="ptag">Formação Complementar</div>
-            <h3>Biomedicina</h3>
-            <p>Futuro curso para ampliar a atuação na área da saúde, integrando conhecimentos em diagnóstico laboratorial, bioquímica e ciências biomédicas.</p>
-            <div class="portfolio-status">
-              <span class="portfolio-status-dot status-future"></span>
-              Meta pós-graduação
+        </article>
+
+        <!-- Item 4 -->
+        <article class="portfolio-card reveal-up" style="--delay: 0.1s">
+          <div class="portfolio-card-top">
+            <span class="portfolio-tag">Experiência</span>
+            <div class="portfolio-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
             </div>
           </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="portfolio-card reveal reveal-delay-2">
-          <div class="portfolio-card-top" style="background:linear-gradient(135deg,#fff7ed,#ffedd5);" id="top-card5">
-            <img src="imagens/projeto.jpg" alt="Projeto de farmácia própria" id="img-card5" loading="lazy" onload="showPortfolioImage('card5')" onerror="hidePortfolioImage('card5')" />
-            <div class="card-overlay" id="overlay-card5"></div>
-            <i class="fas fa-store card-emoji" id="emoji-card5" style="font-size: 48px; display: none;"></i>
+          <h3>Vivência na .Farma</h3>
+          <p>Um ano de experiência prática em farmácia de varejo: atendimento ao cliente, organização de medicamentos, suporte à equipe e familiarização com processos farmacêuticos do dia a dia.</p>
+          <div class="portfolio-status">
+            <span class="status-dot status-dot--done"></span>Concluído
           </div>
-          <div class="portfolio-card-body">
-            <div class="ptag">Empreendedorismo</div>
-            <h3>Projeto: Minha Farmácia</h3>
-            <p>Visão estratégica de longo prazo: abertura de farmácia própria com foco em atendimento humanizado, gestão moderna e excelência em saúde comunitária.</p>
-            <div class="portfolio-status">
-              <span class="portfolio-status-dot status-future"></span>
-              Objetivo de carreira
+        </article>
+
+        <!-- Item 5 -->
+        <article class="portfolio-card reveal-up" style="--delay: 0.2s">
+          <div class="portfolio-card-top">
+            <span class="portfolio-tag">Pessoal</span>
+            <div class="portfolio-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </div>
           </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="portfolio-card reveal reveal-delay-3">
-          <div class="portfolio-card-top" style="background:linear-gradient(135deg,#fafafa,#f0f0f0);" id="top-card6">
-            <img src="imagens/capacitacoes.jpg" alt="Capacitações e cursos" id="img-card6" loading="lazy" onload="showPortfolioImage('card6')" onerror="hidePortfolioImage('card6')" />
-            <div class="card-overlay" id="overlay-card6"></div>
-            <i class="fas fa-certificate card-emoji" id="emoji-card6" style="font-size: 48px; display: none;"></i>
+          <h3>Cuidado e bem-estar</h3>
+          <p>Interesse aprofundado em bem-estar, saúde preventiva e cuidados pessoais — alinhado ao propósito de futuramente oferecer uma farmácia com atendimento humano e especializado.</p>
+          <div class="portfolio-status">
+            <span class="status-dot status-dot--active"></span>Em evolução
           </div>
-          <div class="portfolio-card-body">
-            <div class="ptag">Desenvolvimento Pessoal</div>
-            <h3>Capacitações &amp; Cursos</h3>
-            <p>Busca contínua por cursos de extensão, workshops e certificações complementares na área farmacêutica e de saúde para enriquecer a formação.</p>
-            <div class="portfolio-status">
-              <span class="portfolio-status-dot status-active"></span>
-              Sempre em atualização
+        </article>
+
+        <!-- Item 6 -->
+        <article class="portfolio-card reveal-up" style="--delay: 0.3s">
+          <div class="portfolio-card-top">
+            <span class="portfolio-tag">Futuro</span>
+            <div class="portfolio-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
             </div>
           </div>
-        </div>
-
+          <h3>Empreendedorismo em saúde</h3>
+          <p>Pesquisa contínua sobre gestão de farmácias, legislação sanitária, modelo de negócio e tendências do mercado farmacêutico para embasar futura atuação empreendedora.</p>
+          <div class="portfolio-status">
+            <span class="status-dot status-dot--pending"></span>Planejado
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- =========================================
-       INTERESSES & PERSONALIDADE
-  ========================================== -->
-  <section id="interesses" class="section" aria-labelledby="int-title">
+  <!-- ===================== INTERESSES ===================== -->
+  <section class="interesses" id="interesses">
     <div class="container">
-      <div style="text-align:center; margin-bottom:72px;">
-        <span class="section-label reveal">Personalidade</span>
-        <h2 id="int-title" class="section-title reveal reveal-delay-1" style="margin:0 auto; max-width:560px;">
-          Além da Profissão
-        </h2>
-        <div class="gold-line reveal reveal-delay-2" style="margin:20px auto 0;"></div>
-        <p class="section-sub reveal reveal-delay-2" style="margin:0 auto; text-align:center; max-width:520px;">
-          Por trás da dedicação profissional, há uma pessoa rica em interesses, valores e experiências que moldam quem sou.
-        </p>
-      </div>
+      <p class="section-label reveal-up">Interesses & Personalidade</p>
+      <h2 class="section-title reveal-up" style="--delay: 0.1s">
+        Por trás da profissional,<br />uma pessoa completa.
+      </h2>
 
-      <div class="interests-grid">
-        <div class="interest-card reveal">
-          <i class="fas fa-plane-departure icon"></i>
-          <h4>Viagens</h4>
-          <p>Descobrir novos lugares, culturas e perspectivas do mundo.</p>
+      <div class="interesses-grid">
+        <div class="interesse-item reveal-up" style="--delay: 0.05s">
+          <div class="interesse-icon">✈</div>
+          <h3>Viajar</h3>
+          <p>Explorar novos lugares, culturas e experiências alimenta a curiosidade e a visão de mundo.</p>
         </div>
-        <div class="interest-card reveal reveal-delay-1">
-          <i class="fas fa-gamepad icon"></i>
-          <h4>Games</h4>
-          <p>Entretenimento que exercita raciocínio, estratégia e reflexos.</p>
+        <div class="interesse-item reveal-up" style="--delay: 0.1s">
+          <div class="interesse-icon">🎮</div>
+          <h3>Jogos</h3>
+          <p>Raciocínio estratégico, foco e entretenimento — habilidades que também se refletem na vida profissional.</p>
         </div>
-        <div class="interest-card reveal reveal-delay-2">
-          <i class="fas fa-film icon"></i>
-          <h4>Cinema</h4>
-          <p>Apaixonada por histórias que inspiram, emocionam e ensinam.</p>
+        <div class="interesse-item reveal-up" style="--delay: 0.15s">
+          <div class="interesse-icon">🎬</div>
+          <h3>Cinema</h3>
+          <p>Assistir filmes é uma forma de ampliar perspectivas, desenvolver empatia e apreciar boas histórias.</p>
         </div>
-        <div class="interest-card reveal reveal-delay-3">
-          <i class="fas fa-spa icon"></i>
-          <h4>Bem-estar</h4>
-          <p>Cuidados pessoais, saúde e equilíbrio como estilo de vida.</p>
+        <div class="interesse-item reveal-up" style="--delay: 0.2s">
+          <div class="interesse-icon">✨</div>
+          <h3>Bem-estar</h3>
+          <p>Interesse em cuidados pessoais, saúde preventiva e qualidade de vida — extensão natural da vocação profissional.</p>
         </div>
-        <div class="interest-card reveal reveal-delay-1">
-          <i class="fas fa-baby-carriage icon"></i>
-          <h4>Crianças</h4>
-          <p>Carinho genuíno pelo universo infantil e educação desde cedo.</p>
+        <div class="interesse-item reveal-up" style="--delay: 0.25s">
+          <div class="interesse-icon">👶</div>
+          <h3>Crianças</h3>
+          <p>Carinho e paciência com o público infantil, reforçando um perfil humano e acolhedor no atendimento.</p>
         </div>
-        <div class="interest-card reveal reveal-delay-2">
-          <i class="fas fa-person-walking icon"></i>
-          <h4>Passeios</h4>
-          <p>Explorar novos ambientes, natureza e momentos ao ar livre.</p>
-        </div>
-        <div class="interest-card reveal reveal-delay-3">
-          <i class="fas fa-heartbeat icon"></i>
-          <h4>Qualidade de Vida</h4>
-          <p>Hábitos saudáveis que sustentam alta performance e bem-estar.</p>
-        </div>
-        <div class="interest-card reveal reveal-delay-4">
-          <i class="fas fa-graduation-cap icon"></i>
-          <h4>Aprendizado</h4>
-          <p>Curiosidade constante e sede por novos conhecimentos.</p>
+        <div class="interesse-item reveal-up" style="--delay: 0.3s">
+          <div class="interesse-icon">🌿</div>
+          <h3>Saúde & Natureza</h3>
+          <p>Conexão com a natureza e interesse em práticas saudáveis como parte de um estilo de vida equilibrado.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- =========================================
-       CONTATO
-  ========================================== -->
-  <section id="contato" class="section section--alt" aria-labelledby="cont-title">
+  <!-- ===================== CONTATO ===================== -->
+  <section class="contato" id="contato">
     <div class="container">
-      <div class="contato-grid">
+      <div class="contato-wrapper">
+        <!-- Lado esquerdo: informações -->
+        <div class="contato-info reveal-left">
+          <p class="section-label section-label--light">Contato</p>
+          <h2 class="section-title section-title--light">Vamos conversar?</h2>
+          <p class="contato-desc">Estou aberta a conexões profissionais, oportunidades de aprendizado e conversas sobre desenvolvimento na área da saúde.</p>
 
-        <div>
-          <span class="section-label reveal">Contato</span>
-          <h2 id="cont-title" class="contato-info reveal reveal-delay-1">
-            Vamos conversar?
-          </h2>
-          <div class="gold-line reveal reveal-delay-2"></div>
-          <p class="reveal reveal-delay-2">
-            Estou aberta a oportunidades, parcerias acadêmicas e conexões na área da saúde. Sinta-se à vontade para entrar em contato — responderei com atenção e prontidão.
-          </p>
-
-          <div class="contato-item reveal reveal-delay-2">
-            <div class="contato-item-icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <div class="contato-item-label">E-mail</div>
-              <div class="contato-item-value">
-                <a href="mailto:iaravicfernandes2006@gmail.com">iaravicfernandes2006@gmail.com</a>
-              </div>
-            </div>
+          <div class="contato-links">
+            <a href="mailto:iaravicfernandes2006@gmail.com" class="contato-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              iaravicfernandes2006@gmail.com
+            </a>
+            <a href="tel:+5531998130743" class="contato-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.93 2 2 0 0 1 3.62 2.75h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+              +55 31 99813-0743
+            </a>
           </div>
 
-          <div class="contato-item reveal reveal-delay-3">
-            <div class="contato-item-icon"><i class="fas fa-phone-alt"></i></div>
-            <div>
-              <div class="contato-item-label">Telefone / WhatsApp</div>
-              <div class="contato-item-value">+55 31 99813-0743</div>
-            </div>
-          </div>
-
-          <div class="contato-item reveal reveal-delay-4">
-            <div class="contato-item-icon"><i class="fas fa-university"></i></div>
-            <div>
-              <div class="contato-item-label">Instituição</div>
-              <div class="contato-item-value">UNIFEMM — Farmácia, 2° Período</div>
-            </div>
-          </div>
-
-          <a href="https://wa.me/5531998130743?text=Olá%20Iara%2C%20vi%20seu%20perfil%20e%20gostaria%20de%20entrar%20em%20contato!" 
-             target="_blank" rel="noopener" class="whatsapp-btn reveal reveal-delay-4">
-            <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M16.02 4C9.4 4 4.02 9.38 4.02 16c0 2.12.56 4.2 1.62 6.02L4 28l6.14-1.6A11.93 11.93 0 0 0 16.02 28c6.62 0 12-5.38 12-12s-5.38-12-12-12Zm0 21.96c-1.8 0-3.56-.48-5.1-1.38l-.36-.22-3.64.96.98-3.54-.24-.38A9.87 9.87 0 0 1 6.06 16c0-5.48 4.48-9.96 9.96-9.96S25.98 10.52 25.98 16s-4.48 9.96-9.96 9.96Zm5.46-7.46c-.3-.16-1.78-.88-2.06-.98-.28-.1-.48-.16-.68.16-.2.3-.78.98-.96 1.18-.18.2-.36.22-.66.08-.3-.16-1.28-.48-2.44-1.5-.9-.8-1.52-1.8-1.7-2.1-.18-.3-.02-.46.14-.62.14-.14.3-.36.46-.54.16-.18.2-.3.3-.5.1-.2.06-.38-.02-.54-.08-.16-.68-1.64-.94-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.54.08-.82.38-.28.3-1.08 1.06-1.08 2.58s1.1 2.98 1.26 3.18c.16.2 2.18 3.32 5.28 4.66.74.32 1.32.5 1.76.64.74.24 1.42.2 1.96.12.6-.1 1.78-.72 2.04-1.42.26-.7.26-1.3.18-1.42-.08-.14-.28-.22-.58-.38Z"/>
-            </svg>
+          <a href="https://wa.me/5531998130743" target="_blank" rel="noopener" class="btn btn-wpp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Chamar no WhatsApp
           </a>
         </div>
 
-        <div class="form-card reveal reveal-delay-2">
-          <h3>Envie uma mensagem</h3>
-          <p class="form-sub">Preencha o formulário abaixo e entrarei em contato em breve.</p>
-
-          <div id="contactForm">
+        <!-- Lado direito: formulário -->
+        <div class="contato-form-wrapper reveal-right">
+          <form class="contato-form" id="contatoForm" novalidate>
             <div class="form-group">
-              <label for="nome">Seu nome</label>
-              <input type="text" id="nome" name="nome" placeholder="Como posso chamá-lo(a)?" required />
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome" required autocomplete="name" />
+              <span class="form-error" id="nomeError"></span>
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+              <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required autocomplete="email" />
+              <span class="form-error" id="emailError"></span>
             </div>
             <div class="form-group">
               <label for="mensagem">Mensagem</label>
-              <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+              <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem" required></textarea>
+              <span class="form-error" id="mensagemError"></span>
             </div>
-            <button type="button" class="form-btn" id="formBtn" onclick="handleForm()">
-              Enviar Mensagem <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+            <button type="submit" class="btn btn-primary btn-full">
+              <span class="btn-text">Enviar mensagem</span>
+              <span class="btn-loading" aria-hidden="true">Enviando…</span>
             </button>
-          </div>
-
-          <div class="form-success" id="formSuccess">
-            <div class="form-success-icon"><i class="fas fa-check-circle" style="font-size: 48px; color: #22c55e;"></i></div>
-            <h4>Mensagem enviada!</h4>
-            <p>Obrigada pelo contato. Responderei assim que possível.</p>
-          </div>
+            <p class="form-success" id="formSuccess" aria-live="polite"></p>
+          </form>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- =========================================
-       FOOTER
-  ========================================== -->
-  <footer>
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-logo">Iara <span>Victoria</span></div>
-        <nav class="footer-nav" aria-label="Links rápidos">
-          <a href="#sobre">Sobre</a>
-          <a href="#experiencia">Experiência</a>
-          <a href="#habilidades">Habilidades</a>
-          <a href="#portfolio">Projetos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Iara Victoria Fernandes de Souza. Todos os direitos reservados.</p>
-        <p class="footer-made">Feito com <i class="fas fa-heart" style="color: #C9A227; margin: 0 2px;"></i> e muito propósito</p>
-      </div>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">IVF</span>
+      <p class="footer-copy">© 2025 Iara Victoria Fernandes de Souza. Todos os direitos reservados.</p>
+      <p class="footer-copy footer-sub">Farmácia · Saúde · Cuidado</p>
     </div>
   </footer>
 
-  <!-- ========================================= 
-       EMAILJS SDK — não remova estas linhas!
-  ========================================== -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    emailjs.init("FWYfj-heH3c2lNeXf");
-  </script>
+  <!-- Botão flutuante WhatsApp -->
+  <a href="https://wa.me/5531998130743" target="_blank" rel="noopener" class="fab-wpp" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <script src="script.js"></script>
-
 </body>
 </html>
